@@ -1,0 +1,11 @@
+{
+    "name": "fusion-thruster",
+    "version": "0.0.3",
+    "factorio_version": "2.0",
+    "title": "Fusion Thruster",
+    "author": "Ncc1702",
+    "description": "Adds an additional Fusion thruster.",
+    "dependencies": [
+      "space-age >= 2.0.0"
+    ]
+  }
