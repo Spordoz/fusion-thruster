@@ -4,3 +4,8 @@ Date: 19. 11. 2024
   Changes:
     - Included Locale
     - Sorted Items Correctly
+---------------------------------------------------------------------------------------------------
+Version: 0.0.4
+Date: 19. 11. 2024
+  Changes:
+    - Fixed Thumbnail
