@@ -43,10 +43,13 @@ local fusionthruster_recipe = {
   type = "recipe",
   name = "fusion-thruster",
   enabled = true,
-  energy_required = 8, -- time to craft in seconds (at crafting speed 1)
+  energy_required = 30, -- time to craft in seconds (at crafting speed 1)
   ingredients = {
-    {type = "item", name = "fusion-generator", amount = 1},
-    {type = "item", name = "steel-plate", amount = 50}
+    {type = "item", name = "electric-engine-unit", amount = 10},
+    {type = "item", name = "steel-plate", amount = 50},
+    {type = "item", name = "quantum-processor", amount = 50},
+    {type = "item", name = "tungsten-plate", amount = 50},
+    {type = "item", name = "superconductor", amount = 100}
   },
   results = {{type = "item", name = "fusion-thruster", amount = 1}}
 }
@@ -73,10 +76,11 @@ local thrusterfusionreactor_recipe = {
   type = "recipe",
   name = "thruster-fusion-reactor",
   enabled = true,
-  energy_required = 8, -- time to craft in seconds (at crafting speed 1)
+  energy_required = 60, -- time to craft in seconds (at crafting speed 1)
   ingredients = {
-    {type = "item", name = "fusion-reactor", amount = 1},
-    {type = "item", name = "steel-plate", amount = 50}
+    {type = "item", name = "quantum-processor", amount = 100},
+    {type = "item", name = "tungsten-plate", amount = 50},
+    {type = "item", name = "superconductor", amount = 100}
   },
   results = {{type = "item", name = "thruster-fusion-reactor", amount = 1}}
 }
