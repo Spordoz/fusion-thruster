@@ -9,3 +9,10 @@ Version: 0.0.4
 Date: 19. 11. 2024
   Changes:
     - Fixed Thumbnail
+---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+Date: 21. 11. 2024
+  Changes:
+    -Added Dedicated Technology
+    -Added flavor text Descriptions
+    -Added flavored recipes
