@@ -16,3 +16,10 @@ Date: 21. 11. 2024
     -Added Dedicated Technology
     -Added flavor text Descriptions
     -Added flavored recipes
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 21. 11. 2024
+  Changes:
+    -Fixed Technology Icon
+    -Added Intial Thruster Graphics (might chnage when I learn Blender)
+    -Added Item Icon (might chnage when I learn Blender)

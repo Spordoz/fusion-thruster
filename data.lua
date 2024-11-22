@@ -4,7 +4,7 @@ fusionthruster.icons = {
   {
     icon = fusionthruster.icon,
     icon_size = fusionthruster.icon_size,
-    tint = {r=1,g=0,b=0,a=0.3}
+
   },
 }
 
@@ -226,7 +226,7 @@ fusionthruster_item.name = "fusion-thruster"
 fusionthruster_item.place_result = "fusion-thruster"
 fusionthruster_item.order = "z[thruster]"
 fusionthruster_item.subgroup = "space-platform"
-
+fusionthruster_item.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
 fusionthruster.fuel_fluid_box.filter = "fusion-plasma"
 fusionthruster.oxidizer_fluid_box.filter = "water"
 
@@ -260,6 +260,8 @@ local fusionthruster_recipe = {
   ingredients = {
     {type = "item", name = "electric-engine-unit", amount = 10},
     {type = "item", name = "steel-plate", amount = 50},
+    {type = "item", name = "pipe", amount = 50},
+    {type = "item", name = "iron-gear-wheel", amount = 50},
     {type = "item", name = "quantum-processor", amount = 50},
     {type = "item", name = "tungsten-plate", amount = 50},
     {type = "item", name = "superconductor", amount = 100}
@@ -352,7 +354,7 @@ data:extend(
 			},
 			{
 				icon = "__fusion-thruster__/graphics/fusion-thruster-reasearch.png",
-				icon_size = 64,
+				icon_size = 128,
 				scale = 0.5
 			}
 		},
