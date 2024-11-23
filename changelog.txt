@@ -28,3 +28,10 @@ Version: 0.1.1
 Date: 22. 11. 2024
   Changes:
     -Fixed Mining Error (Thank you User: Tskx)
+---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 23. 11. 2024
+  Changes:
+    -Fixed Unlock issue
+    -Changed Flame colour
+    -Minor changes to plasma connection indicator pipe
