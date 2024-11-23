@@ -7,7 +7,7 @@ fusionthruster.icons = {
 
   },
 }
-
+fusionthruster.minable.result = "fusion-thruster"
 fusionthruster.graphics_set = {
 
   animation = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster",
@@ -286,6 +286,7 @@ thrusterfusionreactor_item.name = "thruster-fusion-reactor"
 thrusterfusionreactor_item.order = "z[thruster]"
 thrusterfusionreactor_item.place_result = "thruster-fusion-reactor"
 thrusterfusionreactor_item.subgroup = "space-platform"
+thrusterfusionreactor.minable.result = "thruster-fusion-reactor" 
 
 local thrusterfusionreactor_recipe = {
   type = "recipe",
