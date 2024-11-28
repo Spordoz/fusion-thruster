@@ -241,7 +241,7 @@ fusionthruster.oxidizer_fluid_box.pipe_connections = {
   {flow_direction = "input-output", direction = defines.direction.east, position = { 1.5,  0}, enable_working_visualisations = { "pipe-2" }}
 }
 
-fusionthruster.min_performance = {
+--[[ fusionthruster.min_performance = {
   fluid_volume = .1,
   fluid_usage = .05,
   effectivity = 0.25
@@ -250,7 +250,20 @@ fusionthruster.max_performance = {
   fluid_volume = 1,
   fluid_usage = 2,
   effectivity = 1.4
+} ]]
+
+fusionthruster.min_performance = {
+fluid_volume = settings.startup["fusionthruster-min-performance-values-fluid-volume"].value,
+fluid_usage =	settings.startup["fusionthruster-min-performance-values-fluid-usage"].value,
+effectivity =	settings.startup["fusionthruster-min-performance-values-effectivity"].value
 }
+fusionthruster.max_performance = {
+fluid_volume = settings.startup["fusionthruster-max-performance-values-fluid-volume"].value,
+fluid_usage =	settings.startup["fusionthruster-max-performance-values-fluid-usage"].value,
+effectivity =	settings.startup["fusionthruster-max-performance-values-effectivity"].value
+}
+
+
 
 local fusionthruster_recipe = {
   type = "recipe",
@@ -269,7 +282,9 @@ local fusionthruster_recipe = {
   results = {{type = "item", name = "fusion-thruster", amount = 1}}
 }
 
-data.raw.fluid["fusion-plasma"].fuel_value = "1MJ"
+--data.raw.fluid["fusion-plasma"].fuel_value = "1MJ"
+
+data.raw.fluid["fusion-plasma"].fuel_value = settings.startup["fusionthruster-fusion-plasma-fuel-value"].value
 
 local thrusterfusionreactor = table.deepcopy(data.raw["fusion-reactor"]["fusion-reactor"])
 thrusterfusionreactor.name = "thruster-fusion-reactor"
