@@ -42,7 +42,8 @@ Date: 27. 11. 2024
     -Setup setting file and inputs - Thrust is now fully modifiable 
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
-Date: 27. 11. 2024
+Date: 03. 12. 2024
   Changes:
     -Graphics for Fusion Thruster Cleaned up and simplified
     -Code Refactor
+    -Added zh-CN locale (Thank you User: PlexPt)
