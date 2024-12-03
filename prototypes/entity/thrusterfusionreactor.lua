@@ -15,7 +15,7 @@ thrusterfusionreactor_item.place_result = "thruster-fusion-reactor"
 thrusterfusionreactor_item.subgroup = "space-platform"
 thrusterfusionreactor.minable.result = "thruster-fusion-reactor" 
 
-thrusterfusionreactor.graphics_set = require ("__fusion-thruster__.prototypes.entity.fusion-thruster-gen-pictures").reactor_graphics_set
+thrusterfusionreactor.graphics_set = require ("__fusion-thruster__.prototypes.entity.fusion-thruster-reactor-pictures").reactor_graphics_set
 
 local thrusterfusionreactor_recipe = {
   type = "recipe",
