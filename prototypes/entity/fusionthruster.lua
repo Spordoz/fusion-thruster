@@ -47,8 +47,8 @@ fusionthruster.graphics_set = {
       animation =
       {
         filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
-        width = 80,
-        height = 74,
+        width = 44,
+        height = 68,
         shift = util.by_pixel( 32.0, 8),
         scale = 0.5
       }
@@ -86,8 +86,8 @@ fusionthruster.graphics_set = {
       animation =
       {
         filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
-        width = 88,
-        height = 88,
+        width = 48,
+        height = 72,
         shift = util.by_pixel( -32.0, 8),
         scale = 0.5
       }
@@ -246,8 +246,8 @@ fusionthruster.oxidizer_fluid_box.filter = "water"
 fusionthruster.fuel_fluid_box.volume = 180
 
 fusionthruster.fuel_fluid_box.pipe_connections = {
-  {flow_direction = "input", connection_type = "normal", connection_category = "plasma-thruster", direction = defines.direction.north, position = {-1, 0}, enable_working_visualisations = { "pipe-4" }},
-  {flow_direction = "input", connection_type = "normal", connection_category = "plasma-thruster", direction = defines.direction.north, position = { 1, 0}, enable_working_visualisations = { "pipe-1" }}
+  {flow_direction = "input", connection_type = "normal", connection_category = "plasma-thruster", direction = defines.direction.west, position = {-1, 0}, enable_working_visualisations = { "pipe-4" }},
+  {flow_direction = "input", connection_type = "normal", connection_category = "plasma-thruster", direction = defines.direction.east, position = { 1, 0}, enable_working_visualisations = { "pipe-1" }}
 }
 
 fusionthruster.oxidizer_fluid_box.pipe_connections = {
