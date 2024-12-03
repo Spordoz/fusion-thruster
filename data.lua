@@ -12,9 +12,6 @@ data:extend(
 		icons = 
 		{
 			{
-				icon = "__core__/graphics/empty.png",
-			},
-			{
 				icon = "__fusion-thruster__/graphics/fusion-thruster-reasearch.png",
 				icon_size = 128,
 				scale = 0.5
