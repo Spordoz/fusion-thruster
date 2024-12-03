@@ -40,3 +40,8 @@ Version: 0.1.3
 Date: 27. 11. 2024
   Changes:
     -Setup setting file and inputs - Thurst is now fully modifiable 
+---------------------------------------------------------------------------------------------------
+Version: 0.1.4
+Date: 27. 11. 2024
+  Changes:
+    -Graphics for Fusion Reactor using Hurricane046 distribution on figma
