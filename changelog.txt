@@ -44,5 +44,5 @@ Date: 27. 11. 2024
 Version: 0.2.0
 Date: 27. 11. 2024
   Changes:
-    -Graphics for Fusion Reactor using Hurricane046 distribution on figma
+    -Graphics for Fusion Thruster Cleaned up and simplified
     -Code Refactor
