@@ -47,9 +47,9 @@ fusionthruster.graphics_set = {
       animation =
       {
         filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
-        width = 44,
-        height = 68,
-        shift = util.by_pixel( 32.0, 8),
+        width = 64,
+        height = 72,
+        shift = util.by_pixel( 38.0, 0),
         scale = 0.5
       }
     },
@@ -86,9 +86,9 @@ fusionthruster.graphics_set = {
       animation =
       {
         filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
-        width = 48,
+        width = 64,
         height = 72,
-        shift = util.by_pixel( -32.0, 8),
+        shift = util.by_pixel( -38, 0),
         scale = 0.5
       }
     },
