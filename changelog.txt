@@ -47,3 +47,8 @@ Date: 03. 12. 2024
     -Graphics for Fusion Thruster Cleaned up and simplified
     -Code Refactor
     -Added zh-CN locale (Thank you User: PlexPt)
+---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 10. 12. 2024
+  Changes:
+    -Better Plasma Pipe Connection Graphics for Fusion Thruster
