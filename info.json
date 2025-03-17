@@ -6,6 +6,7 @@
     "author": "Ncc1702",
     "description": "Adds an additional Fusion thruster.",
     "dependencies": [
-      "space-age >= 2.0.0"
+      "space-age >= 2.0.0",
+        "? plasma-duct"
     ]
   }
