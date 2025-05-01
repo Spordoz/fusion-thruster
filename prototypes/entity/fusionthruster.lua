@@ -324,7 +324,7 @@ local thruster_chamber = {
       }
     }
     },
-  energy_usage = "360kW",
+  energy_usage =  settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
   flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number", "not-on-map", "hide-alt-info", "not-in-made-in", "placeable-off-grid" },
   fluid_boxes = {
       { pipe_connections = { { direction = defines.direction.north, flow_direction = "output", position = { 0, -0.28 } } }, production_type = "output", volume = 10, hide_connection_info = true },
