@@ -47,5 +47,12 @@ data:extend({
 	setting_type = "startup",
 	default_value = "1MJ",
 	order = "b"
+},
+{
+	type = "string-setting",
+	name = "fusionthruster-thruster-chamber-energy-value",
+	setting_type = "startup",
+	default_value = "1MJ",
+	order = "c"
 }
 })

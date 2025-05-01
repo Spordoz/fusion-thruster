@@ -277,7 +277,62 @@ fluid_usage =	settings.startup["fusionthruster-max-performance-values-fluid-usag
 effectivity =	settings.startup["fusionthruster-max-performance-values-effectivity"].value
 }
 
+local thruster_chamber = {
+  type = "assembling-machine",
+  name = "fusionthruster-thruster-chamber",
+  icon = "__space-age__/graphics/icons/fusion-reactor.png",
+  fixed_recipe = "thruster-fusion-plasma",
+  allowed_effects = {
+      "pollution"
+  },
+  collision_box = {
+      {
+          -0.29,
+          -0.29
+      },
+      {
+          0.29,
+          0.29
+      }
+  },
+  max_health = 1000,
+  module_slots = 0,
+  se_allow_in_space = true,
+  selection_box = {
+      {
+          -0.5,
+          -0.5
+      },
+      {
+          0.5,
+          0.5
+      }
+  },
+  selectable_in_game = false,
+  crafting_categories = { "thruster-fusion-plasma" },
+  crafting_speed = 1,
+  energy_source = {
+      type = "fluid",
+      fluid_box = {
+      filter = "fusion-plasma",
+      volume = 1,
+      production_type = "input-output",
+      pipe_connections =
+      {
+      {flow_direction = "input", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-0.28, 0}, enable_working_visualisations = { "pipe-4" }},
+      {flow_direction = "input", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 0.28, 0}, enable_working_visualisations = { "pipe-1" }}
+      }
+    }
+    },
+  energy_usage = "360kW",
+  flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number", "not-on-map", "hide-alt-info", "not-in-made-in", "placeable-off-grid" },
+  fluid_boxes = {
+      { pipe_connections = { { direction = defines.direction.north, flow_direction = "output", position = { 0, -0.28 } } }, production_type = "output", volume = 10, hide_connection_info = true },
+      { pipe_connections = { { direction = defines.direction.south, flow_direction = "output", position = { 0, 0.28 } } }, production_type = "output", volume = 10, hide_connection_info = true },
+  },
+}
 
+data:extend { thruster_chamber }
 
 local fusionthruster_recipe = {
   type = "recipe",
@@ -296,5 +351,24 @@ local fusionthruster_recipe = {
   results = {{type = "item", name = "fusion-thruster", amount = 1}}
 }
 
+local recipe_thruster_fusion_plasma = {
+  type = "recipe",
+  name = "thruster-fusion-plasma",
+  enabled = false,
+  energy_required = 3,
+  category = "thruster-fusion-plasma",
+  ingredients = {
+  },
+  results = { { type = "fluid", name = "thruster-fusion-plasma", amount = 1 } }
+}
 
-data:extend{fusionthruster, fusionthruster_item, fusionthruster_recipe}
+data:extend(
+        {
+            {
+                type = "recipe-category",
+                name = "thruster-fusion-plasma"
+            }
+        }
+)
+
+data:extend{fusionthruster, fusionthruster_item, fusionthruster_recipe, recipe_thruster_fusion_plasma}
