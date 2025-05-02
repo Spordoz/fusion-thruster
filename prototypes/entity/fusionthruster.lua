@@ -240,14 +240,13 @@ fusionthruster_item.place_result = "fusion-thruster"
 fusionthruster_item.order = "z[thruster]"
 fusionthruster_item.subgroup = "space-platform"
 fusionthruster_item.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
-fusionthruster.fuel_fluid_box.filter = "fusion-plasma"
+fusionthruster.fuel_fluid_box.filter = "thruster-fusion-plasma"
 fusionthruster.oxidizer_fluid_box.filter = "water"
 
 fusionthruster.fuel_fluid_box.volume = 180
 
 fusionthruster.fuel_fluid_box.pipe_connections = {
-  {flow_direction = "input", connection_type = "normal", connection_category = "plasma-thruster", direction = defines.direction.west, position = {-1, 0}, enable_working_visualisations = { "pipe-4" }},
-  {flow_direction = "input", connection_type = "normal", connection_category = "plasma-thruster", direction = defines.direction.east, position = { 1, 0}, enable_working_visualisations = { "pipe-1" }}
+  {flow_direction = "input", direction = defines.direction.north, position = {0, 0.5}},
 }
 
 fusionthruster.oxidizer_fluid_box.pipe_connections = {
@@ -282,54 +281,56 @@ local thruster_chamber = {
   name = "fusionthruster-thruster-chamber",
   icon = "__space-age__/graphics/icons/fusion-reactor.png",
   fixed_recipe = "thruster-fusion-plasma",
-  allowed_effects = {
-      "pollution"
-  },
-  collision_box = {
-      {
-          -0.29,
-          -0.29
-      },
-      {
-          0.29,
-          0.29
-      }
-  },
+  allowed_effects = {},
+  collision_box = {{-1.4, -0.5}, {1.4, 0.5}},
   max_health = 1000,
   module_slots = 0,
   se_allow_in_space = true,
-  selection_box = {
-      {
-          -0.5,
-          -0.5
-      },
-      {
-          0.5,
-          0.5
-      }
-  },
+  selection_box = {{-0.5,-0.5},{0.5,0.5}},
   selectable_in_game = false,
   crafting_categories = { "thruster-fusion-plasma" },
   crafting_speed = 1,
-  energy_source = {
-      type = "fluid",
-      fluid_box = {
-      filter = "fusion-plasma",
-      volume = 1,
-      production_type = "input-output",
-      pipe_connections =
-      {
-      {flow_direction = "input", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-0.28, 0}, enable_working_visualisations = { "pipe-4" }},
-      {flow_direction = "input", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 0.28, 0}, enable_working_visualisations = { "pipe-1" }}
-      }
-    }
+    energy_source = {
+        type = "electric",
+        usage_priority = "secondary-input",
+        input_flow_limit = settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
+        buffer_capacity = settings.startup["fusionthruster-thruster-chamber-energy-value"].value
     },
   energy_usage =  settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
   flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number", "not-on-map", "hide-alt-info", "not-in-made-in", "placeable-off-grid" },
   fluid_boxes = {
-      { pipe_connections = { { direction = defines.direction.north, flow_direction = "output", position = { 0, -0.28 } } }, production_type = "output", volume = 10, hide_connection_info = true },
-      { pipe_connections = { { direction = defines.direction.south, flow_direction = "output", position = { 0, 0.28 } } }, production_type = "output", volume = 10, hide_connection_info = true },
-  },
+      {
+      filter = "fusion-plasma",
+      volume = 100,
+      production_type = "input",
+      pipe_connections =
+      {
+      {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-1, 0}},
+      {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 1, 0}}
+      },
+      },
+
+      { 
+      pipe_connections = 
+      { 
+      { direction = defines.direction.south, flow_direction = "output", position = { 0, 0.28 } } 
+      }, 
+      production_type = "output", 
+      volume = 10,
+      filter = "thruster-fusion-plasma", 
+      hide_connection_info = true 
+      },
+
+      { 
+      pipe_connections = 
+      { 
+      { direction = defines.direction.north, flow_direction = "output", position = { 0, -0.28 } } 
+      }, 
+      production_type = "output", 
+      filter = "fluoroketone-hot", 
+      volume = 10
+      }
+    }
 }
 
 data:extend { thruster_chamber }
@@ -354,12 +355,16 @@ local fusionthruster_recipe = {
 local recipe_thruster_fusion_plasma = {
   type = "recipe",
   name = "thruster-fusion-plasma",
+  icon = "__space-age__/graphics/icons/fluid/fusion-plasma.png",
   enabled = false,
-  energy_required = 3,
+  energy_required = 1,
   category = "thruster-fusion-plasma",
   ingredients = {
+    { type = "fluid", name = "fusion-plasma", amount = 2 }
   },
-  results = { { type = "fluid", name = "thruster-fusion-plasma", amount = 1 } }
+  results = { { type = "fluid", name = "thruster-fusion-plasma", amount = settings.startup["fusionthruster-thruster-chamber-conversion-value"].value },
+              { type = "fluid", name = "fluoroketone-hot", amount = 2 }
+}
 }
 
 data:extend(
