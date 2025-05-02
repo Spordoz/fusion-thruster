@@ -336,7 +336,42 @@ local thruster_chamber = {
       }, 
       production_type = "output", 
       filter = "fluoroketone-hot", 
-      volume = 100
+      volume = 100,
+      pipe_picture = { 
+        north =
+        {
+          filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-pipe-N.png",
+          priority = "extra-high",
+          width = 71,
+          height = 38,
+          shift = util.by_pixel(2.25, 23.5),
+          scale = 0.5
+        },
+        east=
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+          width = 384,
+          height = 832,
+          shift = util.by_pixel(0, 96),
+          scale = 0.5
+        },
+        west=
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+          width = 384,
+          height = 832,
+          shift = util.by_pixel(0, 96),
+          scale = 0.5
+        },
+        south=
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+          width = 384,
+          height = 832,
+          shift = util.by_pixel(0, 96),
+          scale = 0.5
+        }
+        }
       }
 }
 }
