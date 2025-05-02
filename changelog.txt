@@ -60,5 +60,9 @@ Date: 02. 05. 2025
       -The Dedicated Fusion Reactor is Deprecated and has been removed old builds will need to be reworked 
     -Thrusters Now Accept Plasma Connections directly
     Known Bugs- Plasma Connections on the LR top Corners are not drawn fluoroketone output top center is also not drawn
-
+---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+Date: 02. 05. 2025
+  Changes:
+    -Plasma Pipe and fluoroketone Connections have Graphics
       

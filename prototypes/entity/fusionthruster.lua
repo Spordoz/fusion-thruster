@@ -344,7 +344,7 @@ local thruster_chamber = {
           priority = "extra-high",
           width = 160,
           height = 160,
-          shift = util.by_pixel(8.25, 48.5),
+          shift = util.by_pixel(4.25, 52.5),
           scale = 0.5
         },
         east=
