@@ -281,12 +281,13 @@ local thruster_chamber = {
   icon = "__space-age__/graphics/icons/fusion-reactor.png",
   fixed_recipe = "thruster-fusion-plasma",
   allowed_effects = {},
-  collision_box = {{-1.4, -0.5}, {1.4, 0.5}},
+  collision_box = {{-1.4, -0.5}, {1.4, 1.4}},
   max_health = 1000,
   module_slots = 0,
   se_allow_in_space = true,
-  selection_box = {{-0.5,-0.5},{0.5,0.5}},
+  selection_box = {{-0.5,-0.5},{0.5,2}},
   selectable_in_game = false,
+  show_recipe_icon = false,
   crafting_categories = { "thruster-fusion-plasma" },
   crafting_speed = 1,
     energy_source = {
@@ -296,7 +297,7 @@ local thruster_chamber = {
         buffer_capacity = settings.startup["fusionthruster-thruster-chamber-energy-value"].value
     },
   energy_usage =  settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
-  flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number", "not-on-map", "hide-alt-info", "not-in-made-in", "placeable-off-grid" },
+  flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number", "not-on-map", "not-in-made-in", "placeable-off-grid" },
   fluid_boxes = {
       {
       filter = "fusion-plasma",
