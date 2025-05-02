@@ -53,7 +53,12 @@ Date: 10. 12. 2024
   Changes:
     -Better Plasma Pipe Connection Graphics for Fusion Thruster
 ---------------------------------------------------------------------------------------------------
-Version: 1.0.0
-Date: 01. 05. 2025
+Version: 0.3.0
+Date: 02. 05. 2025
   Changes:
-    -PLACEHOLDER TEXT
+    -Addition of a Hidden Assembler has been added to allow direct use of SA's Fusion System
+      -The Dedicated Fusion Reactor is Deprecated and has been removed old builds will need to be reworked 
+    -Thrusters Now Accept Plasma Connections directly
+    Known Bugs- Plasma Connections on the LR top Corners are not drawn fluoroketone output top center is also not drawn
+
+      
