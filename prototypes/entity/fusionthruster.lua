@@ -242,9 +242,8 @@ fusionthruster_item.subgroup = "space-platform"
 fusionthruster_item.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
 fusionthruster.fuel_fluid_box.filter = "thruster-fusion-plasma"
 fusionthruster.oxidizer_fluid_box.filter = "water"
-
 fusionthruster.fuel_fluid_box.volume = 180
-
+fusionthruster.fuel_fluid_box.hide_connection_info = true
 fusionthruster.fuel_fluid_box.pipe_connections = {
   {flow_direction = "input", direction = defines.direction.north, position = {0, 0.5}},
 }
