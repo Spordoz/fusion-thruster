@@ -340,11 +340,11 @@ local thruster_chamber = {
       pipe_picture = { 
         north =
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-pipe-N.png",
+          filename = "__fusion-thruster__/graphics/fusion-thruster/chamber-pipe.png",
           priority = "extra-high",
-          width = 71,
-          height = 38,
-          shift = util.by_pixel(2.25, 23.5),
+          width = 160,
+          height = 160,
+          shift = util.by_pixel(8.25, 48.5),
           scale = 0.5
         },
         east=
