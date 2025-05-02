@@ -42,19 +42,6 @@ fusionthruster.graphics_set = {
   {
     {
       always_draw = true,
-      name = "pipe-1",
-      enabled_by_name = true,
-      animation =
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
-        width = 64,
-        height = 72,
-        shift = util.by_pixel( 38.0, 0),
-        scale = 0.5
-      }
-    },
-    {
-      always_draw = true,
       name = "pipe-2",
       enabled_by_name = true,
       animation =
@@ -79,20 +66,6 @@ fusionthruster.graphics_set = {
         scale = 0.5
       }
     },
-    {
-      always_draw = true,
-      name = "pipe-4",
-      enabled_by_name = true,
-      animation =
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
-        width = 64,
-        height = 72,
-        shift = util.by_pixel( -38, 0),
-        scale = 0.5
-      }
-    },
-
     {
       -- effect = "flicker",
       fadeout = true,
@@ -303,11 +276,46 @@ local thruster_chamber = {
       filter = "fusion-plasma",
       volume = 100,
       production_type = "input",
+      draw_only_when_connected = true,
       pipe_connections =
       {
       {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-1, 0}},
       {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 1, 0}}
       },
+      pipe_picture = { 
+      west=
+      {
+        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
+        width = 64,
+        height = 72,
+        shift = util.by_pixel( 30, 4),
+        scale = 0.5
+      },
+      east=
+      {
+        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
+        width = 64,
+        height = 72,
+        shift = util.by_pixel( -30, 4),
+        scale = 0.5
+      },
+      north=
+      {
+        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+        width = 384,
+        height = 832,
+        shift = util.by_pixel(0, 96),
+        scale = 0.5
+      },
+      south=
+      {
+        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+        width = 384,
+        height = 832,
+        shift = util.by_pixel(0, 96),
+        scale = 0.5
+      }
+      }
       },
 
       { 
@@ -330,7 +338,7 @@ local thruster_chamber = {
       filter = "fluoroketone-hot", 
       volume = 100
       }
-    }
+}
 }
 
 data:extend { thruster_chamber }
