@@ -316,7 +316,7 @@ local thruster_chamber = {
       { direction = defines.direction.south, flow_direction = "output", position = { 0, 0.28 } } 
       }, 
       production_type = "output", 
-      volume = 10,
+      volume = 100,
       filter = "thruster-fusion-plasma", 
       hide_connection_info = true 
       },
@@ -328,7 +328,7 @@ local thruster_chamber = {
       }, 
       production_type = "output", 
       filter = "fluoroketone-hot", 
-      volume = 10
+      volume = 100
       }
     }
 }
@@ -360,10 +360,10 @@ local recipe_thruster_fusion_plasma = {
   energy_required = 1,
   category = "thruster-fusion-plasma",
   ingredients = {
-    { type = "fluid", name = "fusion-plasma", amount = 2 }
+    { type = "fluid", name = "fusion-plasma", amount = 4 }
   },
   results = { { type = "fluid", name = "thruster-fusion-plasma", amount = settings.startup["fusionthruster-thruster-chamber-conversion-value"].value },
-              { type = "fluid", name = "fluoroketone-hot", amount = 2 }
+              { type = "fluid", name = "fluoroketone-hot", amount = 4 }
 }
 }
 

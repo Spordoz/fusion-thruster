@@ -52,14 +52,14 @@ data:extend({
 	type = "string-setting",
 	name = "fusionthruster-thruster-chamber-energy-value",
 	setting_type = "startup",
-	default_value = "100J",
+	default_value = "10MW",
 	order = "c"
 },
 {
 	type = "double-setting",
 	name = "fusionthruster-thruster-chamber-conversion-value",
 	setting_type = "startup",
-	default_value = 100,
-	order = "c"
+	default_value = 120,
+	order = "d"
 }
 })
