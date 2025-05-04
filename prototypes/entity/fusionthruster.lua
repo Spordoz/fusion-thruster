@@ -1,12 +1,13 @@
 local fusionthruster = table.deepcopy(data.raw["thruster"]["thruster"])
 fusionthruster.name = "fusion-thruster"
-fusionthruster.icons = {
-  {
-    icon = fusionthruster.icon,
-    icon_size = fusionthruster.icon_size,
-
-  },
-}
+--fusionthruster.icons = {
+--  {
+--    icon = fusionthruster.icon,
+--    icon_size = fusionthruster.icon_size,
+--  },
+--}
+fusionthruster.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
+fusionthruster.icon_mipmaps = 1
 
 fusionthruster.collision_box = {{-1.4, -0.5}, {1.4, 2.2}}
 fusionthruster.selection_box = {{-1.5, -0.5}, {1.5, 5.5}}
@@ -15,21 +16,18 @@ fusionthruster.tile_buildability_rules =
   {area = {{-1.3, -0.5}, {1.3, 2.2}}, required_tiles = {layers={ground_tile=true}}, colliding_tiles = {layers={empty_space=true}}, remove_on_collision = true},
   {area = {{-1.3, 2.7}, {1.3, 90.3}}, required_tiles = {layers={empty_space=true}}, remove_on_collision = true},
 }
-
-
 fusionthruster.dying_explosion = "fusion-generator-explosion"
 fusionthruster.max_health = 1000
 
 fusionthruster.minable.result = "fusion-thruster"
 fusionthruster.graphics_set = {
-
   animation = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster",
-                  {
-                    animation_speed = 0.5,
-                    frame_count = 6,
-                    scale = 0.5,
-                    shift = {0,2.5}
-                  }),
+  {
+    animation_speed = 0.5,
+    frame_count = 6,
+    scale = 0.5,
+    shift = {0,2.5}
+  }),
 
 --[[   integration_patch_render_layer = "floor",
   integration_patch = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-bckg",
