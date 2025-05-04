@@ -1,11 +1,5 @@
 local fusionthruster = table.deepcopy(data.raw["thruster"]["thruster"])
 fusionthruster.name = "fusion-thruster"
---fusionthruster.icons = {
---  {
---    icon = fusionthruster.icon,
---    icon_size = fusionthruster.icon_size,
---  },
---}
 fusionthruster.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
 fusionthruster.icon_mipmaps = 1
 
@@ -31,10 +25,10 @@ fusionthruster.graphics_set = {
 
 --[[   integration_patch_render_layer = "floor",
   integration_patch = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-bckg",
-                      {
-                        scale = 0.5,
-                        shift = {0,3}
-                      }), ]]
+  {
+    scale = 0.5,
+    shift = {0,3}
+  }), ]]
 
   working_visualisations =
   {
@@ -211,14 +205,15 @@ fusionthruster_item.place_result = "fusion-thruster"
 fusionthruster_item.order = "z[thruster]"
 fusionthruster_item.subgroup = "space-platform"
 fusionthruster_item.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
+
 fusionthruster.fuel_fluid_box.filter = "thruster-fusion-plasma"
-fusionthruster.oxidizer_fluid_box.filter = "water"
 fusionthruster.fuel_fluid_box.volume = 180
 fusionthruster.fuel_fluid_box.hide_connection_info = true
 fusionthruster.fuel_fluid_box.pipe_connections = {
   {flow_direction = "input", direction = defines.direction.north, position = {0, 0.5}},
 }
 
+fusionthruster.oxidizer_fluid_box.filter = "water"
 fusionthruster.oxidizer_fluid_box.pipe_connections = {
   {flow_direction = "input-output", direction = defines.direction.west, position = {-1,  2}, enable_working_visualisations = { "pipe-3" }},
   {flow_direction = "input-output", direction = defines.direction.east, position = { 1,  2}, enable_working_visualisations = { "pipe-2" }}
@@ -236,14 +231,14 @@ fusionthruster.max_performance = {
 } ]]
 
 fusionthruster.min_performance = {
-fluid_volume = settings.startup["fusionthruster-min-performance-values-fluid-volume"].value,
-fluid_usage =	settings.startup["fusionthruster-min-performance-values-fluid-usage"].value,
-effectivity =	settings.startup["fusionthruster-min-performance-values-effectivity"].value
+  fluid_volume = settings.startup["fusionthruster-min-performance-values-fluid-volume"].value,
+  fluid_usage =  settings.startup["fusionthruster-min-performance-values-fluid-usage"].value,
+  effectivity =  settings.startup["fusionthruster-min-performance-values-effectivity"].value
 }
 fusionthruster.max_performance = {
-fluid_volume = settings.startup["fusionthruster-max-performance-values-fluid-volume"].value,
-fluid_usage =	settings.startup["fusionthruster-max-performance-values-fluid-usage"].value,
-effectivity =	settings.startup["fusionthruster-max-performance-values-effectivity"].value
+  fluid_volume = settings.startup["fusionthruster-max-performance-values-fluid-volume"].value,
+  fluid_usage =  settings.startup["fusionthruster-max-performance-values-fluid-usage"].value,
+  effectivity =  settings.startup["fusionthruster-max-performance-values-effectivity"].value
 }
 
 local thruster_chamber = {
@@ -261,76 +256,78 @@ local thruster_chamber = {
   show_recipe_icon = false,
   crafting_categories = { "thruster-fusion-plasma" },
   crafting_speed = 1,
-    energy_source = {
-        type = "electric",
-        usage_priority = "secondary-input",
-        input_flow_limit = settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
-        buffer_capacity = settings.startup["fusionthruster-thruster-chamber-energy-value"].value
-    },
+  energy_source =
+  {
+    type = "electric",
+    usage_priority = "secondary-input",
+    input_flow_limit = settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
+    buffer_capacity = settings.startup["fusionthruster-thruster-chamber-energy-value"].value
+  },
   energy_usage =  settings.startup["fusionthruster-thruster-chamber-energy-value"].value,
   flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number", "not-on-map", "not-in-made-in", "placeable-off-grid" },
-  fluid_boxes = {
-      {
+  fluid_boxes =
+  {
+    {
       filter = "fusion-plasma",
       volume = 100,
       production_type = "input",
       draw_only_when_connected = true,
       pipe_connections =
       {
-      {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-1, 0}},
-      {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 1, 0}}
+        {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-1, 0}},
+        {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 1, 0}}
       },
       pipe_picture = { 
-      west=
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
-        width = 64,
-        height = 72,
-        shift = util.by_pixel( 30, 4),
-        scale = 0.5
-      },
-      east=
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
-        width = 64,
-        height = 72,
-        shift = util.by_pixel( -30, 4),
-        scale = 0.5
-      },
-      north=
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-        width = 384,
-        height = 832,
-        shift = util.by_pixel(0, 96),
-        scale = 0.5
-      },
-      south=
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-        width = 384,
-        height = 832,
-        shift = util.by_pixel(0, 96),
-        scale = 0.5
+        west =
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
+          width = 64,
+          height = 72,
+          shift = util.by_pixel( 30, 4),
+          scale = 0.5
+        },
+        east =
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
+          width = 64,
+          height = 72,
+          shift = util.by_pixel( -30, 4),
+          scale = 0.5
+        },
+        north =
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+          width = 384,
+          height = 832,
+          shift = util.by_pixel(0, 96),
+          scale = 0.5
+        },
+        south =
+        {
+          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
+          width = 384,
+          height = 832,
+          shift = util.by_pixel(0, 96),
+          scale = 0.5
+        }
       }
-      }
-      },
+    },
 
-      { 
+    { 
       pipe_connections = 
       { 
-      { direction = defines.direction.south, flow_direction = "output", position = { 0, 0.28 } } 
+        { direction = defines.direction.south, flow_direction = "output", position = { 0, 0.28 } } 
       }, 
       production_type = "output", 
       volume = 100,
       filter = "thruster-fusion-plasma", 
       hide_connection_info = true 
-      },
+    },
 
-      { 
+    { 
       pipe_connections = 
       { 
-      { direction = defines.direction.north, flow_direction = "output", position = { 0, -0.28 } } 
+        { direction = defines.direction.north, flow_direction = "output", position = { 0, -0.28 } } 
       }, 
       production_type = "output", 
       filter = "fluoroketone-hot", 
@@ -369,9 +366,9 @@ local thruster_chamber = {
           shift = util.by_pixel(0, 96),
           scale = 0.5
         }
-        }
       }
-}
+    }
+  }
 }
 
 data:extend { thruster_chamber }
