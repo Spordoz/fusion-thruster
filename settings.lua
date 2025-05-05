@@ -61,5 +61,12 @@ data:extend({
     setting_type = "startup",
     default_value = 120,
     order = "d"
+  },
+  {
+    type = "double-setting",
+    name = "fusionthruster-thruster-chamber-conversion-speed",
+    setting_type = "startup",
+    default_value = 0.5,
+    order = "e"
   }
 })
