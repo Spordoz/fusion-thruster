@@ -6,7 +6,6 @@ Date: 05. 05. 2025
     - updated info to ascribe credits properly 
     - Added settings variable for plasma conversion rate
     - Updated storage capacity to more closely match the fusion generator
-    - AI assisted localizations created for German, Spanish, French, and Chinese (Simplified)
     - snouz
     - Completely reworked graphics: entity based on normal thruster's animation
     - New icon
