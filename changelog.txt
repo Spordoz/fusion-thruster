@@ -11,6 +11,7 @@ Date: 05. 05. 2025
     - Completely reworked graphics: entity based on normal thruster's animation
     - New icon
     - New tech icon
+    - Custom sounds
     - New thumbnail
     - New Sounds
     - Added custom remnants

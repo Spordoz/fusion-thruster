@@ -30,6 +30,33 @@ fusionthruster.tile_buildability_rules =
 fusionthruster.dying_explosion = "fusion-generator-explosion"
 fusionthruster.max_health = 1000
 
+fusionthruster.working_sound =
+{
+  main_sounds =
+  {
+    {
+      sound =
+      {
+        filename = "__fusion-thruster__/sound/entity/platform-thruster/thruster-burner.ogg",
+        volume = 0.4,
+        speed_smoothing_window_size = 60,
+        advanced_volume_control = {attenuation = "exponential"},
+        audible_distance_modifier = 0.8
+      },
+      match_volume_to_activity = true,
+      activity_to_volume_modifiers = {multiplier = 2.0},
+      match_speed_to_activity = true,
+      activity_to_speed_modifiers = {multiplier = 1.2},
+    },
+  },
+  max_sounds_per_prototype = 2,
+  use_doppler_shift = false,
+  extra_sounds_ignore_limit = true,
+  activate_sound = { variations = sound_variations("__fusion-thruster__/sound/entity/platform-thruster/thruster-engine-activate", 1, 0.4) },
+  deactivate_sound = { variations = sound_variations("__fusion-thruster__/sound/entity/platform-thruster/thruster-engine-deactivate", 1, 0.4) },
+}
+
+
 fusionthruster.minable.result = "fusion-thruster"
 fusionthruster.graphics_set = {
   animation = {
