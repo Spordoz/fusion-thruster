@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "factorio_version": "2.0",
   "title": "Fusion Thruster",
-  "author": "ncc1702, Graphics by snouz",
+  "author": "ncc1702, Sounds and Sprites by snouz",
   "description": "Adds an additional Fusion thruster.",
   "dependencies": [
     "space-age >= 2.0.0"
