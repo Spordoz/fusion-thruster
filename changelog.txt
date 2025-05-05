@@ -1,15 +1,20 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.4.0
+Version: 1.0.0
 Date: 05. 05. 2025
   Changes:
-    - (Update by snouz)
+    ncc1702
+    - updated info to ascribe credits properly 
+    - Added settings variable for plasma conversion rate
+    - Updated storage capacity to more closely match the fusion generator
+    snouz
     - Completely reworked graphics: entity based on normal thruster's animation
     - New icon
     - New tech icon
     - New thumbnail
+    - New Sounds
     - Added custom remnants
     - Internal fusion fluid hidden from GUI
-    - Requires space travel
+    - Requires space travel mod portal flag
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 02. 05. 2025
