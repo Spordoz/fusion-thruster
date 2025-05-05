@@ -1,12 +1,5 @@
 local entity_shift = util.by_pixel(0, 114)
 
-local empty = 
-{
-  filename = "__fusion-thruster__/graphics/empty.png",
-  width = 1,
-  height = 1,
-}
-
 local fusionthruster_corpse = table.deepcopy(data.raw["corpse"]["thruster-remnants"])
 fusionthruster_corpse.name = "fusion-thruster-remnants"
 fusionthruster_corpse.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
@@ -67,18 +60,6 @@ fusionthruster.graphics_set = {
 
   working_visualisations =
   {
-    {
-      always_draw = true,
-      name = "pipe-2",
-      enabled_by_name = true,
-      animation = empty
-    },
-    {
-      always_draw = true,
-      name = "pipe-3",
-      enabled_by_name = true,
-      animation = empty
-    },
     {
       effect = "flicker",
       fadeout = true,
@@ -236,8 +217,8 @@ fusionthruster.fuel_fluid_box.pipe_connections = {
 
 fusionthruster.oxidizer_fluid_box.filter = "water"
 fusionthruster.oxidizer_fluid_box.pipe_connections = {
-  {flow_direction = "input-output", direction = defines.direction.west, position = {-1,  2}, enable_working_visualisations = { "pipe-3" }},
-  {flow_direction = "input-output", direction = defines.direction.east, position = { 1,  2}, enable_working_visualisations = { "pipe-2" }}
+  {flow_direction = "input-output", direction = defines.direction.west, position = {-1,  2}},
+  {flow_direction = "input-output", direction = defines.direction.east, position = { 1,  2}}
 }
 
 --[[ fusionthruster.min_performance = {
@@ -297,12 +278,6 @@ local thruster_chamber = {
       {
         {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.west, position = {-1, 0}},
         {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 1, 0}}
-      },
-      pipe_picture = { 
-        west = empty,
-        east = empty,
-        north = empty,
-        south = empty,
       }
     },
 
@@ -324,13 +299,7 @@ local thruster_chamber = {
       }, 
       production_type = "output", 
       filter = "fluoroketone-hot", 
-      volume = 100,
-      pipe_picture = { 
-        north = empty,
-        east = empty,
-        west = empty,
-        south = empty,
-      }
+      volume = 100
     }
   }
 }
