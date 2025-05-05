@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.0
+Date: 05. 05. 2025
+  Changes:
+    - (Update by snouz)
+    - Completely reworked graphics: entity based on normal thruster's animation
+    - New icon
+    - New tech icon
+    - New thumbnail
+    - Added custom remnants
+    - Internal fusion fluid hidden from GUI
+    - Requires space travel
+---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 02. 05. 2025
   Changes:

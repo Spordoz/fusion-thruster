@@ -1,5 +1,29 @@
+local entity_shift = util.by_pixel(0, 114)
+
+local empty = 
+{
+  filename = "__fusion-thruster__/graphics/empty.png",
+  width = 1,
+  height = 1,
+}
+
+local fusionthruster_corpse = table.deepcopy(data.raw["corpse"]["thruster-remnants"])
+fusionthruster_corpse.name = "fusion-thruster-remnants"
+fusionthruster_corpse.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
+fusionthruster_corpse.selection_box = {{-1.4, -0.5}, {1.4, 2.2}}
+fusionthruster_corpse.collision_box = {{-1.5, -0.5}, {1.5, 5.5}}
+fusionthruster_corpse.tile_width = 3
+fusionthruster_corpse.tile_height = 4
+fusionthruster_corpse.animation = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/thruster-remnants",{
+  scale = 0.5,
+  direction_count = 1,
+  line_length = 1,
+  shift = entity_shift
+})
+
 local fusionthruster = table.deepcopy(data.raw["thruster"]["thruster"])
 fusionthruster.name = "fusion-thruster"
+fusionthruster.corpse = "fusion-thruster-remnants"
 fusionthruster.icon = "__fusion-thruster__/graphics/icons/fusion-thruster.png"
 fusionthruster.icon_mipmaps = 1
 
@@ -15,20 +39,31 @@ fusionthruster.max_health = 1000
 
 fusionthruster.minable.result = "fusion-thruster"
 fusionthruster.graphics_set = {
-  animation = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster",
-  {
-    animation_speed = 0.5,
-    frame_count = 6,
-    scale = 0.5,
-    shift = {0,2.5}
-  }),
+  animation = {
+    layers = {
+      util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/thruster",
+      {
+        animation_speed = 0.7,
+        frame_count = 64,
+        scale = 0.5,
+        shift = entity_shift,
+      }),
+      util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/thruster-foreground",
+      {
+        animation_speed = 0.7,
+        repeat_count = 64,
+        scale = 0.5,
+        shift = entity_shift,
+      }),
+    }
+  },
 
---[[   integration_patch_render_layer = "floor",
-  integration_patch = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-bckg",
+  integration_patch_render_layer = "floor",
+  integration_patch = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/thruster-bckg",
   {
     scale = 0.5,
-    shift = {0,3}
-  }), ]]
+    shift = entity_shift,
+  }),
 
   working_visualisations =
   {
@@ -36,40 +71,26 @@ fusionthruster.graphics_set = {
       always_draw = true,
       name = "pipe-2",
       enabled_by_name = true,
-      animation =
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-        width = 384,
-        height = 832,
-        shift = util.by_pixel(0, 96),
-        scale = 0.5
-      }
+      animation = empty
     },
     {
       always_draw = true,
       name = "pipe-3",
       enabled_by_name = true,
-      animation =
-      {
-        filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-        width = 384,
-        height = 832,
-        shift = util.by_pixel(0, 96),
-        scale = 0.5
-      }
+      animation = empty
     },
     {
-      -- effect = "flicker",
+      effect = "flicker",
       fadeout = true,
-      animation = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-light",
-                  {
-                    animation_speed = 0.5,
-                    frame_count = 6,
-                    blend_mode = "additive",
-                    draw_as_glow = true,
-                    scale = 0.5,
-                    shift = {0,2.5}
-                  }),
+      animation = util.sprite_load("__fusion-thruster__/graphics/fusion-thruster/thruster-light",
+        {
+          animation_speed = 0.7,
+          frame_count = 64,
+          blend_mode = "additive",
+          draw_as_glow = true,
+          scale = 0.5,
+          shift = entity_shift,
+        }),
     },
   },
   flame_effect =
@@ -278,38 +299,10 @@ local thruster_chamber = {
         {flow_direction = "input-output", connection_type = "normal", connection_category = "fusion-plasma", direction = defines.direction.east, position = { 1, 0}}
       },
       pipe_picture = { 
-        west =
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-4.png",
-          width = 64,
-          height = 72,
-          shift = util.by_pixel( 30, 4),
-          scale = 0.5
-        },
-        east =
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-1.png",
-          width = 64,
-          height = 72,
-          shift = util.by_pixel( -30, 4),
-          scale = 0.5
-        },
-        north =
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-          width = 384,
-          height = 832,
-          shift = util.by_pixel(0, 96),
-          scale = 0.5
-        },
-        south =
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-          width = 384,
-          height = 832,
-          shift = util.by_pixel(0, 96),
-          scale = 0.5
-        }
+        west = empty,
+        east = empty,
+        north = empty,
+        south = empty,
       }
     },
 
@@ -321,7 +314,7 @@ local thruster_chamber = {
       production_type = "output", 
       volume = 100,
       filter = "thruster-fusion-plasma", 
-      hide_connection_info = true 
+      hide_connection_info = true
     },
 
     { 
@@ -333,45 +326,14 @@ local thruster_chamber = {
       filter = "fluoroketone-hot", 
       volume = 100,
       pipe_picture = { 
-        north =
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/chamber-pipe.png",
-          priority = "extra-high",
-          width = 160,
-          height = 160,
-          shift = util.by_pixel(8.25, 48.5),
-          scale = 0.5
-        },
-        east=
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-          width = 384,
-          height = 832,
-          shift = util.by_pixel(0, 96),
-          scale = 0.5
-        },
-        west=
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-          width = 384,
-          height = 832,
-          shift = util.by_pixel(0, 96),
-          scale = 0.5
-        },
-        south=
-        {
-          filename = "__fusion-thruster__/graphics/fusion-thruster/fusion-thruster-pipe-connection-empty.png",
-          width = 384,
-          height = 832,
-          shift = util.by_pixel(0, 96),
-          scale = 0.5
-        }
+        north = empty,
+        east = empty,
+        west = empty,
+        south = empty,
       }
     }
   }
 }
-
-data:extend { thruster_chamber }
 
 local fusionthruster_recipe = {
   type = "recipe",
@@ -397,21 +359,22 @@ local recipe_thruster_fusion_plasma = {
   enabled = false,
   energy_required = 1,
   category = "thruster-fusion-plasma",
-  ingredients = {
+  ingredients = 
+  {
     { type = "fluid", name = "fusion-plasma", amount = 4 }
   },
-  results = { { type = "fluid", name = "thruster-fusion-plasma", amount = settings.startup["fusionthruster-thruster-chamber-conversion-value"].value },
-              { type = "fluid", name = "fluoroketone-hot", amount = 4 }
-}
+  results = 
+  {
+    { type = "fluid", name = "thruster-fusion-plasma", amount = settings.startup["fusionthruster-thruster-chamber-conversion-value"].value },
+    { type = "fluid", name = "fluoroketone-hot", amount = 4 }
+  }
 }
 
-data:extend(
-        {
-            {
-                type = "recipe-category",
-                name = "thruster-fusion-plasma"
-            }
-        }
-)
+local recipe_category = {
+  type = "recipe-category",
+  name = "thruster-fusion-plasma"
+}
 
-data:extend{fusionthruster, fusionthruster_item, fusionthruster_recipe, recipe_thruster_fusion_plasma}
+data:extend({
+  recipe_category,fusionthruster_corpse, thruster_chamber, fusionthruster, fusionthruster_item, fusionthruster_recipe, recipe_thruster_fusion_plasma
+})
