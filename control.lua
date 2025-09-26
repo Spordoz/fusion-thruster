@@ -24,6 +24,7 @@ local function on_built(event)
             name = "fusionthruster-thruster-chamber",
             position = assem_pos,
             force = entity.force,
+            quality = entity.quality,
             direction = entity.direction,
             destructible = false
         }
