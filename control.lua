@@ -55,11 +55,9 @@ local function on_entity_died(event)
                 storage.fusionthruster.assem[assem_unit_number] = nil
             end
 
-
             storage.fusionthruster.entities[entity.unit_number] = nil
             storage.fusionthruster.unit[entity.unit_number] = nil
         else 
-            local pos = entity.position.x .. " " .. entity.position.y
             local entities = entity.surface.find_entities({{entity.position.x - 3, entity.position.y - 3},{entity.position.x + 3, entity.position.y + 3}})
 
             for i = 1, #entities do
